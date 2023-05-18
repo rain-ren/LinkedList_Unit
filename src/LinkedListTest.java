@@ -65,7 +65,17 @@ class LinkedListTest {
         linkedList.addToTail(20);
 
         assertEquals(5,linkedList.getHead().getVal());
+        assertEquals(20, linkedList.getHead().getNext().getNext().getNext().getVal());
         assertEquals(4,linkedList.getSize());
+
+        linkedList.removeFromFront();
+        assertEquals(10,linkedList.getHead().getVal());
+        assertEquals(3, linkedList.getSize());
+
+        linkedList.removeTail();
+        assertEquals(15,linkedList.getHead().getNext().getVal());
+        assertEquals(2,linkedList.getSize());
+
 
     }
 }

@@ -17,20 +17,24 @@ public class LinkedList {
         }
     }
     public void addToTail(int v){
+        Node n = new Node(v);
         if (head == null){
-            head = new Node(v);
-            size++;
-        } else {
-            Node n = new Node(v);
-            head.setNext(n);
-            n.setNext(null);
-            size++;
+            head = n;
+        }else{
+            Node currentLast = head;
+            while(currentLast.next != null){
+                currentLast = currentLast.next;
+            }
+            currentLast.next = n;
         }
+        size++;
+
     }
     public void removeFromFront(){
         if (head != null){
             Node oldHead = head;
             Node newHead = head.getNext();
+            oldHead.setNext(null);
             head = newHead;
             head.setNext(newHead.getNext());
             size--;
